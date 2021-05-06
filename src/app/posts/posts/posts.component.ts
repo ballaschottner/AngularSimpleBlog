@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from "../post.service";
-import { Post } from "../post.interface";
+import { PostService } from '../post.service';
+import { Post } from '../post.interface';
 
 
 @Component({
@@ -11,15 +11,17 @@ import { Post } from "../post.interface";
 export class PostsComponent implements OnInit {
 
   posts: Post[] = [];
+  errorMessage = '';
 
-  constructor(private getPost: PostService ) {
+  constructor(private getPosts: PostService ) {
   }
 
   ngOnInit(): void {
-    this.getPost.getPost().subscribe(posts => {
-      console.log("data", posts);
+    this.getPosts.getPosts().subscribe(posts => {
+      console.log('data', posts);
       this.posts = posts;
-    })
-  };
-
+    }, errorMsg => {
+      this.errorMessage = errorMsg;
+  });
+  }
 }

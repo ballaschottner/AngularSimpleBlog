@@ -1,10 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-export interface Post {
-  id: number;
-  title: string;
-  body: string
-}
+import { Post } from '../post.interface';
 
 @Component({
   selector: 'app-postitem',
@@ -13,14 +8,14 @@ export interface Post {
 })
 export class PostitemComponent implements OnInit {
 
-  imgLink: string = 'https://picsum.photos/600/200';
+  imgLink = 'https://picsum.photos/600/200';
 
   @Input()
-  data: Post[] = [];
+  data: Post | any;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('This is postitem:', this.data);
   }
-
 }
