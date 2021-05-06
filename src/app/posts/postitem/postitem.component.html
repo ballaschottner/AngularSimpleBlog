@@ -1,9 +1,6 @@
 <div>
-  <div *ngFor="let post of data" [id]="post.id">
     <img [src]="imgLink" alt="">
-    <h1>{{post.title}}</h1>
-    <h4>{{post.body | truncate: 100}}</h4>
+    <h1 [innerHTML]="data?.title"></h1>
+    <h4 [innerHTML]="data?.body | truncate: 100"></h4>
     <a href="#">read more</a>
-  </div>
 </div>
-<p>it works (Postitem)</p>

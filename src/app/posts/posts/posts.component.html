@@ -1,2 +1,3 @@
-<p>it works (Posts)</p>
-<app-postitem [data]="posts"></app-postitem>
+<div *ngFor="let post of posts">
+  <app-postitem [data]="post"></app-postitem>
+</div>
