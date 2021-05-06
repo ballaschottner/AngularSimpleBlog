@@ -11,12 +11,11 @@ export class PostitemComponent implements OnInit {
   imgLink = 'https://picsum.photos/600/200';
 
   @Input()
-  data: Post | undefined;
+  data: Post | any;
 
   constructor() { }
 
   ngOnInit(): void {
     console.log('This is postitem:', this.data);
   }
-
 }

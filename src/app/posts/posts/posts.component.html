@@ -1,3 +1,19 @@
-<div *ngFor="let post of posts">
-  <app-postitem [data]="post"></app-postitem>
-</div>
+<div *ngIf="errorMessage==='';then success else error"></div>
+
+<ng-template #success>
+  <ng-template *ngIf="posts?.length===0;then noPosts else withPosts">
+  </ng-template>
+</ng-template>
+<ng-template #error>
+  <h2 class="error">{{errorMessage}}</h2>
+</ng-template>
+
+<ng-template #withPosts>
+  <div *ngFor="let post of posts">
+    <app-postitem [data]="post"></app-postitem>
+  </div>
+</ng-template>
+
+<ng-template #noPosts>
+  <h2 class="nopost">Ooops! No posts yet:(</h2>
+</ng-template>
